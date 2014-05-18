@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2> Language is {{ language }}</h2>
+<h2> Session Language is {{ session_language }}</h2>
+<blockquote>Sample Pg No 2</blockquote>
+{% if articles.count > 0 %}
+{% for article in articles %}
+<a href="/articles/get/{{ article.id }}">{{ article.title }}</a>
+<blockquote>{{ article.body|lower|truncatewords:"10" }}</blockquote>
+{% endfor %}
+{% else %}
+<blockquote>None to show </blockquote>
+{% endif %}
+
+{% endblock %}
